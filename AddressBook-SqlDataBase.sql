@@ -33,3 +33,64 @@ update Contacts_Book set Names='Somashekar',Typee='Family' Where Id=1;
 update Contacts_Book set Names='RadhaRani',Typee='Friend' Where Id=3;
 update Contacts_Book set Names='KrishnaKumar',Typee='Profession' Where Id=4;
 Select * from Contacts_Book
+
+--UC9
+Select COUNT(Typee) from Contacts_Book Where Typee='Family';
+
+--UC10
+Insert into Contacts_Book(FirstName,LastName,Addres,City,Statee,Zip,PhoneNumber,Email,Names,Typee) values('Sanjay','Kumar','Kolar','Kolar','Karnataka','553746','9874687656','Sanjay@gmail.com','Sanjaykumar','Friend'); 
+Insert into Contacts_Book(FirstName,LastName,Addres,City,Statee,Zip,PhoneNumber,Email,Names,Typee) values('Prathap','Singh','Rajasthan','Rajasthan','Rajasthan','343746','6787468765','Prathap@gmail.com','Prathapsingh','Family'); 
+
+--UC11
+Create Table Type
+(
+ID int primary Key identity(1,1),
+TypeName Varchar(30),
+PersonID int Foreign Key REFERENCES Contacts_Book(ID)
+);
+Insert into Type(TypeName,PersonID) Values('Friends','1');
+Insert into Type(TypeName,PersonID) Values('Family','1');
+select * from Type;
+
+--UC12
+Select*from Contacts_Book;
+
+--UC13
+Create Procedure AddContacts
+(
+@FirstName varchar(30),
+@LastName varchar(30),
+@Address varchar(30),
+@City varchar(30),
+@State varchar(30),
+@Zip BigInt,
+@PhoneNumber BigInt,
+@Email varchar(30),
+@Name varchar(30),
+@Type varchar(30)
+)
+As
+Begin
+Insert into Contacts_Book values(@FirstName,@LastName,@Address,@City,@State,@Zip,@PhoneNumber,@Email,@Name,@Type);
+End 
+
+--UC14
+Create Procedure DeleteContacts
+(
+@Id int
+)
+As
+Begin
+Delete from Contacts_Book Where Id=@Id;
+End
+
+--UC15
+Create Procedure UpdateContactDeatils
+(
+@Id int,
+@Type varchar(30)
+)
+As
+Begin
+Update Contacts_Book set Typee=@Type Where Id=@Id;
+End
