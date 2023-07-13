@@ -26,3 +26,10 @@ Select COUNT(Statee) from Contacts_Book Where Statee='Karnataka';
 
 --UC7
 Select * from Contacts_Book Where City='Banglore' ORDER BY FirstName
+
+--UC8
+Alter Table Contacts_Book Add Names Varchar(30), Typee Varchar(30);
+update Contacts_Book set Names='Somashekar',Typee='Family' Where Id=1;
+update Contacts_Book set Names='RadhaRani',Typee='Friend' Where Id=3;
+update Contacts_Book set Names='KrishnaKumar',Typee='Profession' Where Id=4;
+Select * from Contacts_Book
