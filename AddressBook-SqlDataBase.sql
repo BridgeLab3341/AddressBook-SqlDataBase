@@ -13,3 +13,6 @@ Select * from Contacts_Book
 
 --UC3
 Update Contacts_Book set FirstName='Krishna',LastName='Kumar' where Id=4;
+
+--UC4
+Delete Contacts_Book where FirstName='Anil';
