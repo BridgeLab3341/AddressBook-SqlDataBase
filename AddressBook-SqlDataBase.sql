@@ -19,3 +19,7 @@ Delete Contacts_Book where FirstName='Anil';
 
 --UC5
 Select * from Contacts_Book where City='Banglore' or Statee='Karnataka';
+
+--UC6
+Select COUNT(City) from Contacts_Book Where City='Banglore';
+Select COUNT(Statee) from Contacts_Book Where Statee='Karnataka';
