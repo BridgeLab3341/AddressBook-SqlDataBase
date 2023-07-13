@@ -23,3 +23,6 @@ Select * from Contacts_Book where City='Banglore' or Statee='Karnataka';
 --UC6
 Select COUNT(City) from Contacts_Book Where City='Banglore';
 Select COUNT(Statee) from Contacts_Book Where Statee='Karnataka';
+
+--UC7
+Select * from Contacts_Book Where City='Banglore' ORDER BY FirstName
